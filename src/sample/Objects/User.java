@@ -20,10 +20,13 @@ public class User {
         Statement statement = connection.createStatement();
         ResultSet resId = statement.executeQuery("SELECT user_id FROM names WHERE username = '" + username + "' LIMIT 1");
 
-        //int user_id = resId.next()
+        if(! resId.next()) return null;
 
-        //while (user_id_statement.)
+        int user_id = resId.getInt("user_id");
 
-        return null;
+        ResultSet resSalt = statement.executeQuery("SELECT salt FROM passwords WHERE user_id = " + user_id + " LIMIT 1");
+
+        if(! resSalt.next()) return null;
+        return resSalt.getString("salt");
     }
 }
