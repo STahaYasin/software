@@ -17,8 +17,11 @@ import java.sql.Statement;
 
 public class Main extends Application {
 
+    private static Stage window;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
+        window = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Kassa systeem");
         primaryStage.setScene(new Scene(root, 1280, 720));
@@ -29,4 +32,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }
