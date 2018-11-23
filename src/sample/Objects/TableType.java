@@ -1,4 +1,4 @@
-package sample;
+package sample.Objects;
 
 public class TableType {
     private int tabletype_id;

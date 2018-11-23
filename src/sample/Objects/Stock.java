@@ -1,4 +1,4 @@
-package sample;
+package sample.Objects;
 
 public class Stock {
     private int stock_id;

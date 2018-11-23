@@ -1,4 +1,4 @@
-package sample;
+package sample.Objects;
 
 import sample.SQL_Classes.SQLConnectionManager;
 

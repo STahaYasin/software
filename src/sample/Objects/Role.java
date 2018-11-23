@@ -1,4 +1,4 @@
-package sample;
+package sample.Objects;
 
 public class Role {
     private int role_id;

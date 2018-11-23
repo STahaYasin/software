@@ -1,4 +1,4 @@
-package sample;
+package sample.Objects;
 
 public class Password {
     private int password_id;

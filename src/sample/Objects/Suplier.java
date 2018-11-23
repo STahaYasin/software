@@ -1,4 +1,6 @@
-package sample;
+package sample.Objects;
+
+import sample.Objects.Address;
 
 public class Suplier {
     private int suplier_id;

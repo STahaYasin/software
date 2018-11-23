@@ -1,4 +1,6 @@
-package sample;
+package sample.Objects;
+
+import sample.Objects.Stock;
 
 public class Product {
     private int product_id;
