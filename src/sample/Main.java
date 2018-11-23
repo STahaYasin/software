@@ -27,15 +27,6 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        try {
-            Connection connection = SQLConnectionManager.getConnection();
-
-            String a = User.getSalt("savrantaha");
-
-            connection.close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
         launch(args);
     }
 }
