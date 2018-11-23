@@ -6,8 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Objects.User;
 import sample.SQL_Classes.SQLConnectionManager;
 
+import javax.jws.soap.SOAPBinding;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,20 +28,10 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         try {
-            launch(args);
             Connection connection = SQLConnectionManager.getConnection();
 
-            Statement statement = null;
-            String query = "SELECT * FROM names WHERE username = 'savrantaha'";
+            String a = User.getSalt("savrantaha");
 
-            statement = connection.createStatement();
-            ResultSet res = statement.executeQuery(query);
-
-            while(res.next()){
-                System.out.println("-\t id: " + String.valueOf(res.getInt("user_id")));
-            }
-
-            statement.close();
             connection.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
