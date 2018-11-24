@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import sample.Exceptions.IncorectPasswordException;
 import sample.Exceptions.UserNotFoundException;
+import sample.Handlers.AlertHandler;
 import sample.Handlers.PasswordHandler;
 import sample.Main;
 import javafx.stage.Stage;
@@ -37,6 +38,21 @@ public class LoginController {
         un = username.getText();
         pw = password.getText();
 
+        boolean failed = false;
+
+        if(un == null || un.isEmpty()){
+            AlertHandler.ShowWarning("", "Login failed", "Username cannot leaved empty.");
+            failed = true;
+        }
+        if(pw == null || pw.isEmpty()){
+            AlertHandler.ShowWarning("", "Login failed", "Password field cannot leaved empty.");
+            failed = true;
+        }
+
+        if(failed){
+            // Doe de rest niet zolang de gebruiker zijn username en wachtwoord  ingeeft
+            return;
+        }
 
         try {
             String salt = User.getSalt(un);
@@ -48,31 +64,17 @@ public class LoginController {
             goToDifferentView(user);
         }
         catch (UserNotFoundException e){
-            sayUserNotFound();
+            AlertHandler.ShowWarning("", "Login failed", "No user found for this username");
         }
         catch (IncorectPasswordException e){
-            sayInvalidPassword();
+            AlertHandler.ShowWarning("", "Login failed", "Incorrect username of password");
         }
         catch (Exception e) {
-            e.printStackTrace();
+            AlertHandler.ShowError("Error!", "Exception", e.getMessage());
         }
     }
-    private void sayUserNotFound(){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("");
-        alert.setHeaderText("Login failed");
-        alert.setContentText("No user found for this username");
-        alert.showAndWait();
-    }
-    private void sayInvalidPassword(){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("");
-        alert.setHeaderText("Login failed");
-        alert.setContentText("Incorrect username of password");
-        alert.showAndWait();
-    }
 
-    public void goToDifferentView(User user) throws Exception{
+    private void goToDifferentView(User user) throws Exception{
         Stage stage;
         Parent root;
 

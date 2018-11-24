@@ -11,8 +11,8 @@ public class SQLConnectionManager {
     public static final String HOSTNAME = "localhost";
     public static final String PORT = "3306";
 
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "3d22@511517STY";
+    private static final String USERNAME = "software";
+    private static final String PASSWORD = "software_123";
 
     private static final String DATABASE = "software";
 
