@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Controllers.StageHolder;
 import sample.Objects.User;
 import sample.SQL_Classes.SQLConnectionManager;
 
@@ -21,6 +22,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        StageHolder stageHolder = StageHolder.getInstance();
+        stageHolder.setStage(primaryStage);
+
         window = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Kassa systeem");

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import javafx.scene.layout.Pane;
+import javafx.stage.StageStyle;
 import sample.Exceptions.IncorectPasswordException;
 import sample.Exceptions.UserNotFoundException;
 import sample.Handlers.AlertHandler;
@@ -61,6 +62,7 @@ public class LoginController {
 
             User user = User.Create(un, hash);
 
+            System.out.println("Logged in");
             goToDifferentView(user);
         }
         catch (UserNotFoundException e){
@@ -77,12 +79,32 @@ public class LoginController {
     private void goToDifferentView(User user) throws Exception{
         Stage stage;
         Parent root;
-
         stage = (Stage) btn.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("Views/main.fxml"));
-        Scene scene = new Scene(root);
-        scene.setUserData(user);
+        //root = FXMLLoader.load(getClass().getResource("Views/main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Views/main.fxml"));
+        root = (Parent) fxmlLoader.load();
+        MainController mainController = fxmlLoader.getController();
+        mainController.setUser(user);
+
+        Scene scene = new Scene(root, 1280, 720);
         stage.setScene(scene);
+
         stage.show();
+
+    }
+    private  void opVenster() throws Exception{
+        Stage stage;
+        Parent root;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/main.fxml"));
+        stage = (Stage) btn.getScene().getWindow();
+
+        Stage stage1 = new Stage(StageStyle.DECORATED);
+        stage1.setScene(new Scene((Pane)loader.load()));
+
+
+
+        MainController controller = loader.<MainController>getController();
+
+        stage1.show();
     }
 }

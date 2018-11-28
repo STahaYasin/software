@@ -8,8 +8,8 @@ import java.util.TimeZone;
 
 public class SQLConnectionManager {
 
-    public static final String HOSTNAME = "localhost";
-    public static final String PORT = "3306";
+    private static final String HOSTNAME = "localhost";
+    private static final String PORT = "3306";
 
     private static final String USERNAME = "software";
     private static final String PASSWORD = "software_123";
