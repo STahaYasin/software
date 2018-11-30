@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.MainController">
+    <children>
+        <Pane layoutX="0" layoutY="0" prefHeight="61.0" prefWidth="1280.0" style="-fx-background-color: #efefef;">
+            <children>
+                <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../icons/pro1.jpg" />
+                    </image></ImageView>
+                <Label fx:id="name" layoutX="76.0" layoutY="14.0" text="Name Name" />
+                <Label fx:id="username" layoutX="76.0" layoutY="31.0" text="Username" />
+            </children>
+        </Pane>
+      <ImageView fx:id="pool1" fitHeight="122.0" fitWidth="228.0" layoutX="105.0" layoutY="98.0" onMouseClicked="#handle" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool2" fitHeight="123.0" fitWidth="228.0" layoutX="388.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool3" fitHeight="129.0" fitWidth="228.0" layoutX="664.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool4" fitHeight="115.0" fitWidth="228.0" layoutX="939.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool5" fitHeight="115.0" fitWidth="236.0" layoutX="1067.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool6" fitHeight="115.0" fitWidth="228.0" layoutX="939.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool7" fitHeight="115.0" fitWidth="228.0" layoutX="664.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool8" fitHeight="121.0" fitWidth="228.0" layoutX="388.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool9" fitHeight="115.0" fitWidth="228.0" layoutX="105.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pool10" fitHeight="115.0" fitWidth="228.0" layoutX="-9.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@../Images/pool.jpg" />
+         </image>
+      </ImageView>
+    </children>
+</Pane>

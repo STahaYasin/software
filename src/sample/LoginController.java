@@ -85,6 +85,7 @@ public class LoginController {
         root = (Parent) fxmlLoader.load();
         MainController mainController = fxmlLoader.getController();
         mainController.setUser(user);
+        mainController.setStage(stage);
 
         Scene scene = new Scene(root, 1280, 720);
         stage.setScene(scene);
@@ -100,9 +101,6 @@ public class LoginController {
 
         Stage stage1 = new Stage(StageStyle.DECORATED);
         stage1.setScene(new Scene((Pane)loader.load()));
-
-
-
         MainController controller = loader.<MainController>getController();
 
         stage1.show();
