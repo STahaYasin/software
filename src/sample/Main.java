@@ -22,7 +22,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         window = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("Views/sample.fxml"));
+        //verander terug naar sample.xml
+        Parent root = FXMLLoader.load(getClass().getResource("Views/main.fxml"));
         primaryStage.setTitle("Kassa systeem");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
