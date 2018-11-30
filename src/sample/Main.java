@@ -26,7 +26,8 @@ public class Main extends Application {
         stageHolder.setStage(primaryStage);
 
         window = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        //verander terug naar sample.xml
+        Parent root = FXMLLoader.load(getClass().getResource("Views/main.fxml"));
         primaryStage.setTitle("Kassa systeem");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
