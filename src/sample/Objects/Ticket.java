@@ -8,6 +8,11 @@ public class Ticket {
     private ArrayList<Order> orders;
     private ArrayList<TableReservation> tableReservations;
 
+    private String name;
+
+    public String getName(){ return name; }
+    public void setName(String name){ this.name = name; }
+
     public Ticket(){
 
     }
@@ -35,6 +40,11 @@ public class Ticket {
         // TODO set timer
 
         //this.tableReservations.add(tableReservation);
+    }
+    public void addTableReservation(TableReservation tableReservation){
+        if(tableReservations == null) tableReservations = new ArrayList<>();
+
+        tableReservations.add(tableReservation);
     }
     public ArrayList<TableReservation> getTableReservations(){
         return tableReservations;

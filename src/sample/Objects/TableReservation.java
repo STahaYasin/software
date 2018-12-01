@@ -12,6 +12,7 @@ public class TableReservation {
     public void setTicket(Ticket ticket){
         this.ticket = ticket;
     }
+    public Ticket getTicket() { return ticket; }
 
     public TableReservation(Table table, ResetTableHandler resetTableHandler){
         this.table = table;

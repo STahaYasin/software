@@ -11,7 +11,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.Handlers.TableManager;
+import sample.Handlers.TicketHandler;
 import sample.Objects.TableReservation;
+import sample.Objects.Ticket;
 import sample.Objects.User;
 
 public class MainController implements IHaveStage {
@@ -59,10 +61,15 @@ public class MainController implements IHaveStage {
             tableManager = TableManager.getInstance();
             tableManager.setTableButtons(imageViews.length);
 
+            TicketHandler ticketHandler = TicketHandler.getInstance();
+            ticketHandler.AddTicket(new Ticket());
+            ticketHandler.AddTicket(new Ticket());
+            ticketHandler.AddTicket(new Ticket());
+
             for(int i = 0; i < imageViews.length; i ++){
                 ImageView imageView = imageViews[i];
                 final int index = i;
-                imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+                imageView.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
                     try{
                         TableReservation tableReservation = tableManager.getTableReservation(index);
                         openDetailWindow(event, tableReservation);
