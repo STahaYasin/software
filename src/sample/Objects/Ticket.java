@@ -14,7 +14,7 @@ public class Ticket {
     public void setName(String name){ this.name = name; }
 
     public Ticket(){
-
+        name = "Unnamed ticket";
     }
 
     public ArrayList<Order> getOrders(){
@@ -40,6 +40,11 @@ public class Ticket {
         // TODO set timer
 
         //this.tableReservations.add(tableReservation);
+    }
+    public void removeTableReservation(TableReservation tableReservation){
+        if(tableReservations == null || tableReservations.size() == 0) return;
+
+        tableReservations.remove(tableReservation);
     }
     public void addTableReservation(TableReservation tableReservation){
         if(tableReservations == null) tableReservations = new ArrayList<>();

@@ -3,11 +3,10 @@ package sample.Controllers;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.CellViews.TableCellView;
@@ -22,14 +21,15 @@ public class DetailController implements IHaveStage {
 
     @FXML private Label table_reservation_name;
 
+    @FXML TabPane tab_pane;
     @FXML Tab tab_tables_in_same_ticket;
     @FXML ListView lv_list_of_tickets;
     @FXML ListView lv_list_of_tables_in_same_ticket;
 
     @FXML Button btn_add_new_ticket;
 
-    private final ObservableList<Ticket> ticketList = FXCollections.observableArrayList();
-    private final ObservableList<TableReservation> tableList = FXCollections.observableArrayList();
+    private ObservableList<Ticket> ticketList;
+    private ObservableList<TableReservation> tableList;
 
     TableReservation tableReservation;
 
@@ -52,15 +52,34 @@ public class DetailController implements IHaveStage {
             Ticket ticket = new Ticket();
             ticket.setName("Test");
 
+            // TODO voordat deze tableReservation object in de list ..
+            // TODO van de nieuwe ticket word gestoken moet verwijderd worden uit de oude ticket
+
             ticket.addTableReservation(tableReservation);
             tableReservation.setTicket(ticket);
 
             TicketHandler ticketHandler = TicketHandler.getInstance();
-
             ticketHandler.AddTicket(ticket);
 
             event.consume();
-            setupLayout(); // TODO
+            setupLayout();
+        });
+
+        lv_list_of_tickets.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+                Ticket selectedTicket = (Ticket) lv_list_of_tickets.getSelectionModel().getSelectedItem();
+                System.out.println("Ticket selected: " + selectedTicket.getName());
+
+                if(tableReservation.getTicket() != null){
+                    tableReservation.getTicket().removeTableReservation(tableReservation);
+                }
+
+                selectedTicket.addTableReservation(tableReservation);
+                tableReservation.setTicket(selectedTicket);
+
+                setupLayout();
+                event.consume();
+            }
         });
     }
     private void setupLayout(){
@@ -72,7 +91,7 @@ public class DetailController implements IHaveStage {
     private void setupTickets(){
         TicketHandler ticketHandler = TicketHandler.getInstance();
 
-        ticketList.removeAll();
+        ticketList = FXCollections.observableArrayList();
         lv_list_of_tickets.refresh();
         ticketList.addAll(ticketHandler.getTickets());
         lv_list_of_tickets.setItems(ticketList);
@@ -82,12 +101,43 @@ public class DetailController implements IHaveStage {
             tab_tables_in_same_ticket.setDisable(true);
             return;
         }
+
+        tableList = FXCollections.observableArrayList();
         tab_tables_in_same_ticket.setDisable(false);
 
         Table table = new Table();
         table.setName("Bla bla");
-        tableList.addAll(new TableReservation(table, null), new TableReservation(table, null));
+        tableList.addAll(tableReservation.getTicket().getTableReservations());
         lv_list_of_tables_in_same_ticket.setItems(tableList);
+
+        lv_list_of_tables_in_same_ticket.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                final TableReservation selectedTable = (TableReservation) lv_list_of_tables_in_same_ticket.getSelectionModel().getSelectedItem();
+
+                switch (event.getButton()){
+                    case PRIMARY:{
+                        if(event.getClickCount() == 2){
+                            System.out.println("Bouble clicked on: " + ((TableReservation) lv_list_of_tables_in_same_ticket.getSelectionModel().getSelectedItem()).getName());
+                        }
+                    } break;
+                    case SECONDARY:{
+
+                        /*final ContextMenu contextMenu = new ContextMenu();
+                        MenuItem menuItemGoToTable = new MenuItem("Go to table");
+                        menuItemGoToTable.addEventHandler(MouseEvent.MOUSE_RELEASED, event1 -> {
+                            System.out.println("Go to Table: " + selectedTable.getName());
+                        });
+
+                        contextMenu.getItems().addAll(menuItemGoToTable);
+                        contextMenu.show(lv_list_of_tables_in_same_ticket, stage.getX() + event.getSceneX(), stage.getY() + event.getSceneY());*/
+                    } break;
+                }
+            }
+        });
+
+        SelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
+        selectionModel.select(tab_tables_in_same_ticket);
     }
 
     @Override

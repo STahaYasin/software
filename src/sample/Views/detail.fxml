@@ -17,7 +17,7 @@
        </Pane>
        <Pane layoutX="0.0" layoutY="80.0" prefHeight="640.0" prefWidth="380.0">
            <children>
-               <TabPane layoutX="15.0" layoutY="15.0" prefHeight="610.0" prefWidth="350.0" tabClosingPolicy="UNAVAILABLE">
+               <TabPane fx:id="tab_pane" layoutX="15.0" layoutY="15.0" prefHeight="610.0" prefWidth="350.0" tabClosingPolicy="UNAVAILABLE">
                    <tabs>
                        <Tab text="Ticket">
                            <content>
