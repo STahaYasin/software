@@ -10,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.Handlers.TableManager;
+import sample.Objects.TableReservation;
 import sample.Objects.User;
 
 public class MainController implements IHaveStage {
@@ -18,54 +20,62 @@ public class MainController implements IHaveStage {
 
     @FXML private Label name;
     @FXML private Label username;
-    @FXML private ImageView pool1,pool2,pool3,pool4,pool5,pool6,pool7,pool8,pool9,pool10;
+    @FXML private ImageView pool1, pool2, pool3, pool4, pool5, pool6, pool7, pool8, pool9, pool10;
+    private ImageView[] imageViews;
 
-   public MainController(){}
+    TableManager tableManager;
 
+    public MainController(){
 
-    private  void opVenster(MouseEvent event) throws Exception{
+    }
 
+    public void setUser(User user){
+        this.user = user;
+    }
+
+    private void openDetailWindow(MouseEvent event, TableReservation tableReservation) throws Exception{
+        if(tableReservation == null){
+            // TODO notify table reservation cannot be null
+
+            return;
+        }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/detail.fxml"));
 
-
         Stage stage1 = new Stage(StageStyle.DECORATED);
         stage1.setScene(new Scene((Pane)loader.load()));
-        DetailController controller = loader.<DetailController>getController();
-        ((IHaveStage) controller).setStage(stage);
+        DetailController detailController = loader.<DetailController>getController();
+        ((IHaveStage) detailController).setStage(stage);
 
+        detailController.setTableReservation(tableReservation);
 
         stage1.show();
-    }
-    public void setUser(User user){
-       this.user = user;
-    }
-
-    @FXML
-    public void handle(MouseEvent event) throws Exception{
-       System.out.println("Clicked");
-
-           if(event.getSource()== pool1) {
-               System.out.printf("pool1");
-               opVenster(event);
-           }
-        if(event.getSource()== pool2) {
-            System.out.printf("pool2");
-            //opVenster(event);
-        }
     }
 
     @FXML
     void initialize() {
         Platform.runLater(() ->{
-//            System.out.println(user.getName().getFirstname());
+            imageViews = new ImageView[] {pool1, pool2, pool3, pool4, pool5, pool6, pool7, pool8, pool9, pool10};
+            tableManager = TableManager.getInstance();
+            tableManager.setTableButtons(imageViews.length);
 
-//            name.setText(user.getName().getFirstname() + " " + user.getName().getLastName());
-//            username.setText(user.getName().getUsername() + " (" + user.getRole().getRoleName() + ")");
-            name.setText("fatih kilic");
-            username.setText("15: toogbediende");
+            for(int i = 0; i < imageViews.length; i ++){
+                ImageView imageView = imageViews[i];
+                final int index = i;
+                imageView.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+                    try{
+                        TableReservation tableReservation = tableManager.getTableReservation(index);
+                        openDetailWindow(event, tableReservation);
+                    } catch (Exception e) {
+                        System.out.println("Error with opening the window");
+                        System.out.println(e.getMessage());
+                    }
+                });
+            }
+
+            name.setText(user.getName().getFirstname() + " " + user.getName().getLastName());
+            username.setText(user.getName().getUsername() + " (" + user.getRole().getRoleName() + ")");
         });
-
     }
 
     public void setStage(Stage stage) {

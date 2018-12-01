@@ -35,7 +35,7 @@ public class LoginController implements IHaveStage {
 
 
     @FXML
-    public void login(ActionEvent event){
+    public void login(ActionEvent event) throws Exception {
         String un, pw;
 
         un = username.getText();
@@ -57,15 +57,16 @@ public class LoginController implements IHaveStage {
             return;
         }
 
+        User user = null;
+
         try {
             String salt = User.getSalt(un);
 
             String hash = PasswordHandler.MakeHash(pw, salt);
 
-            User user = User.Create(un, hash);
+            user = User.Create(un, hash);
 
             System.out.println("Logged in");
-            goToDifferentView(user);
         }
         catch (UserNotFoundException e){
             AlertHandler.ShowWarning("", "Login failed", "No user found for this username");
@@ -76,6 +77,9 @@ public class LoginController implements IHaveStage {
         catch (Exception e) {
             AlertHandler.ShowError("Error!", "Exception", e.getMessage());
         }
+
+        if(user == null) return;
+        goToDifferentView(user);
     }
 
     private void goToDifferentView(User user) throws Exception{

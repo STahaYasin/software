@@ -9,6 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * The User object in the data structure
+ *
+ * The user object is able to compare a password hash with the one in the database. The object does not hold the password hash in it.
+ */
 public class User {
     private int user_id;
 
@@ -33,6 +38,14 @@ public class User {
 
         name = Name.Create(user_id);
     }
+
+    /**
+     * Creates the user object by getting its data from the
+     * @param username
+     * @param hash
+     * @return
+     * @throws Exception
+     */
     public static User Create(String username, String hash) throws Exception{
         Connection connection = SQLConnectionManager.getConnection();
 

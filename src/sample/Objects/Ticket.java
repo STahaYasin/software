@@ -23,16 +23,18 @@ public class Ticket {
     }
 
     public void addTable(Table table){
-        // TODO do something with the table
-
-        TableReservation tableReservation = new TableReservation(table);
+        /**
+         * Adding this (ticket) to the table, this helps us with finding the ticket if the table is added to a ticket
+         */
+        //TableReservation tableReservation = new TableReservation(table);
+        //tableReservation.setTicket(this);
 
         // TODO do something with the resevation
         // TODO start
         // TODO set start
         // TODO set timer
 
-        this.tableReservations.add(tableReservation);
+        //this.tableReservations.add(tableReservation);
     }
     public ArrayList<TableReservation> getTableReservations(){
         return tableReservations;
