@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/Controllers/IHaveStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/SQL_Classes/SQLConnectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/SQL_Classes/SQLConnectionManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Views/Detail.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Views/Detail.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Views/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/DetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/SQL_Classes/SQLConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/SQL_Classes/SQLConnectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Views/Detail.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Views/detail.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Views/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Views/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,12 +79,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="21" />
-          <entry key="java" value="8472" />
+          <entry key="java" value="8943" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8472" />
+          <entry key="JAVA" value="8943" />
           <entry key="XML" value="21" />
         </counts>
       </usages-collector>
@@ -191,10 +175,10 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
+            <state relative-caret-position="210">
               <caret line="90" column="21" lean-forward="true" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -230,11 +214,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/SQL_Classes/SQLConnectionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="16" column="54" lean-forward="true" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+            <state relative-caret-position="274">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
             </state>
           </provider>
         </entry>
@@ -314,7 +298,6 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Views/Detail.fxml" />
         <option value="$PROJECT_DIR$/src/sample/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/sample/SQL_Classes/SQLConnectionManager.java" />
         <option value="$PROJECT_DIR$/src/sample/Views/main.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Views/detail.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/DetailController.java" />
@@ -322,6 +305,7 @@
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/IHaveStage.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/sample/SQL_Classes/SQLConnectionManager.java" />
       </list>
     </option>
   </component>
@@ -462,7 +446,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543626301827" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543626858748" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Labs/Lab2/Lab2 Algoritmen" />
     <property name="project.structure.last.edited" value="Project" />
@@ -600,7 +584,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26746988" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26746988" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3987952" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -612,7 +596,7 @@
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32891566" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.10733844" />
-      <window_info anchor="bottom" id="Terminal" order="14" weight="0.49638554" />
+      <window_info anchor="bottom" id="Terminal" order="14" visible="true" weight="0.49638554" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -768,13 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/SQL_Classes/SQLConnectionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="16" column="54" lean-forward="true" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/TheMagicHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -849,11 +826,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controllers/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
+        <state relative-caret-position="210">
           <caret line="90" column="21" lean-forward="true" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/SQL_Classes/SQLConnectionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
