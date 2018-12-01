@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Controllers.IHaveStage;
+import sample.Controllers.LoginController;
 import sample.Controllers.StageHolder;
 import sample.Objects.User;
 import sample.SQL_Classes.SQLConnectionManager;
@@ -26,7 +28,14 @@ public class Main extends Application {
         stageHolder.setStage(primaryStage);
 
         window = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("Views/sample.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Views/sample.fxml"));
+        Parent root = fxmlLoader.load();
+
+        LoginController loginController = fxmlLoader.<LoginController>getController();
+        ((IHaveStage) loginController).setStage(primaryStage);
+
         primaryStage.setTitle("Kassa systeem");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();

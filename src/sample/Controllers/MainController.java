@@ -1,37 +1,20 @@
 package sample.Controllers;
 
-import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.concurrent.Worker;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.Objects.User;
 
-import javax.jws.soap.SOAPBinding;
-import javax.xml.soap.Text;
-import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class MainController {
+public class MainController implements IHaveStage {
     User user ;
-    Stage thisStage;
+    Stage stage;
 
     @FXML private Label name;
     @FXML private Label username;
@@ -41,18 +24,18 @@ public class MainController {
 
 
     private  void opVenster(MouseEvent event) throws Exception{
-        Stage stage;
-        Parent root;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Views/main.fxml"));
-        stage = (Stage) pool1.getScene().getWindow();
+
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/detail.fxml"));
+
 
         Stage stage1 = new Stage(StageStyle.DECORATED);
         stage1.setScene(new Scene((Pane)loader.load()));
+        DetailController controller = loader.<DetailController>getController();
+        ((IHaveStage) controller).setStage(stage);
+
 
         stage1.show();
-
-
-
     }
     public void setUser(User user){
        this.user = user;
@@ -60,10 +43,16 @@ public class MainController {
 
     @FXML
     public void handle(MouseEvent event) throws Exception{
+       System.out.println("Clicked");
+
            if(event.getSource()== pool1) {
                System.out.printf("pool1");
                opVenster(event);
            }
+        if(event.getSource()== pool2) {
+            System.out.printf("pool2");
+            //opVenster(event);
+        }
     }
 
     @FXML
@@ -80,6 +69,6 @@ public class MainController {
     }
 
     public void setStage(Stage stage) {
-       thisStage = stage;
+       this.stage = stage;
     }
 }

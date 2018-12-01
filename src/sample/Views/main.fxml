@@ -22,7 +22,7 @@
             <Image url="@../Images/pool.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="pool2" fitHeight="123.0" fitWidth="228.0" layoutX="388.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pool2" fitHeight="123.0" fitWidth="228.0" layoutX="388.0" layoutY="98.0" onMouseClicked="#handle" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/pool.jpg" />
          </image>
