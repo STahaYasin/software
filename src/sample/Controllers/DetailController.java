@@ -18,6 +18,7 @@ import sample.Objects.Ticket;
 
 public class DetailController implements IHaveStage {
     private Stage stage;
+    private IOpenTableReservations iOpenTableReservations;
 
     @FXML private Label table_reservation_name;
 
@@ -81,6 +82,33 @@ public class DetailController implements IHaveStage {
                 event.consume();
             }
         });
+
+        lv_list_of_tables_in_same_ticket.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                final TableReservation selectedTable = (TableReservation) lv_list_of_tables_in_same_ticket.getSelectionModel().getSelectedItem();
+
+                switch (event.getButton()){
+                    case PRIMARY:{
+                        if(event.getClickCount() == 2){
+                            iOpenTableReservations.OpenTableReservation(selectedTable);
+                            stage.close();
+                        }
+                    } break;
+                    case SECONDARY:{
+
+                        /*final ContextMenu contextMenu = new ContextMenu();
+                        MenuItem menuItemGoToTable = new MenuItem("Go to table");
+                        menuItemGoToTable.addEventHandler(MouseEvent.MOUSE_RELEASED, event1 -> {
+                            System.out.println("Go to Table: " + selectedTable.getName());
+                        });
+
+                        contextMenu.getItems().addAll(menuItemGoToTable);
+                        contextMenu.show(lv_list_of_tables_in_same_ticket, stage.getX() + event.getSceneX(), stage.getY() + event.getSceneY());*/
+                    } break;
+                }
+            }
+        });
     }
     private void setupLayout(){
         table_reservation_name.setText(tableReservation.getName());
@@ -110,32 +138,6 @@ public class DetailController implements IHaveStage {
         tableList.addAll(tableReservation.getTicket().getTableReservations());
         lv_list_of_tables_in_same_ticket.setItems(tableList);
 
-        lv_list_of_tables_in_same_ticket.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                final TableReservation selectedTable = (TableReservation) lv_list_of_tables_in_same_ticket.getSelectionModel().getSelectedItem();
-
-                switch (event.getButton()){
-                    case PRIMARY:{
-                        if(event.getClickCount() == 2){
-                            System.out.println("Bouble clicked on: " + ((TableReservation) lv_list_of_tables_in_same_ticket.getSelectionModel().getSelectedItem()).getName());
-                        }
-                    } break;
-                    case SECONDARY:{
-
-                        /*final ContextMenu contextMenu = new ContextMenu();
-                        MenuItem menuItemGoToTable = new MenuItem("Go to table");
-                        menuItemGoToTable.addEventHandler(MouseEvent.MOUSE_RELEASED, event1 -> {
-                            System.out.println("Go to Table: " + selectedTable.getName());
-                        });
-
-                        contextMenu.getItems().addAll(menuItemGoToTable);
-                        contextMenu.show(lv_list_of_tables_in_same_ticket, stage.getX() + event.getSceneX(), stage.getY() + event.getSceneY());*/
-                    } break;
-                }
-            }
-        });
-
         SelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
         selectionModel.select(tab_tables_in_same_ticket);
     }
@@ -143,5 +145,8 @@ public class DetailController implements IHaveStage {
     @Override
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+    public void setOpenTableReservationListener(IOpenTableReservations iOpenTableReservations){
+        this.iOpenTableReservations = iOpenTableReservations;
     }
 }

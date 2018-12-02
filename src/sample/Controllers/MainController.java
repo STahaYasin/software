@@ -16,7 +16,7 @@ import sample.Objects.TableReservation;
 import sample.Objects.Ticket;
 import sample.Objects.User;
 
-public class MainController implements IHaveStage {
+public class MainController implements IHaveStage, IOpenTableReservations {
     User user ;
     Stage stage;
 
@@ -35,7 +35,14 @@ public class MainController implements IHaveStage {
         this.user = user;
     }
 
-    private void openDetailWindow(MouseEvent event, TableReservation tableReservation) throws Exception{
+    public void OpenTableReservation(TableReservation tableReservation){
+        try {
+            openDetailWindow(tableReservation);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void openDetailWindow(TableReservation tableReservation) throws Exception{
         if(tableReservation == null){
             // TODO notify table reservation cannot be null
 
@@ -47,7 +54,8 @@ public class MainController implements IHaveStage {
         Stage stage1 = new Stage(StageStyle.DECORATED);
         stage1.setScene(new Scene((Pane)loader.load()));
         DetailController detailController = loader.<DetailController>getController();
-        ((IHaveStage) detailController).setStage(stage);
+        detailController.setOpenTableReservationListener(this);
+        ((IHaveStage) detailController).setStage(stage1);
 
         detailController.setTableReservation(tableReservation);
 
@@ -72,7 +80,7 @@ public class MainController implements IHaveStage {
                 imageView.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
                     try{
                         TableReservation tableReservation = tableManager.getTableReservation(index);
-                        openDetailWindow(event, tableReservation);
+                        openDetailWindow(tableReservation);
                     } catch (Exception e) {
                         System.out.println("Error with opening the window");
                         System.out.println(e.getMessage());
