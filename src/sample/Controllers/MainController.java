@@ -70,9 +70,6 @@ public class MainController implements IHaveStage, IOpenTableReservations {
             tableManager.setTableButtons(imageViews.length);
 
             TicketHandler ticketHandler = TicketHandler.getInstance();
-            ticketHandler.AddTicket(new Ticket());
-            ticketHandler.AddTicket(new Ticket());
-            ticketHandler.AddTicket(new Ticket());
 
             for(int i = 0; i < imageViews.length; i ++){
                 ImageView imageView = imageViews[i];

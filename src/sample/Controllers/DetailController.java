@@ -15,6 +15,8 @@ import sample.Objects.Table;
 import sample.Objects.TableReservation;
 import sample.Objects.Ticket;
 
+import java.util.Optional;
+
 
 public class DetailController implements IHaveStage {
     private Stage stage;
@@ -50,6 +52,14 @@ public class DetailController implements IHaveStage {
         setupLayout();
 
         btn_add_new_ticket.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            // TODO place ticket in the database, and use the id in the sugested name
+            TextInputDialog textInputDialog = new TextInputDialog("Ticket Voorbeeld");
+
+            textInputDialog.setTitle("Ticket name");
+            textInputDialog.setContentText("Enter ticket name");
+
+            Optional<String> result = textInputDialog.showAndWait();
+
             Ticket ticket = new Ticket();
             ticket.setName("Test");
 
