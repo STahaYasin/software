@@ -63,14 +63,13 @@ public class DetailController implements IHaveStage {
             Ticket ticket = new Ticket();
             ticket.setName("Test");
 
-            // TODO voordat deze tableReservation object in de list ..
-            // TODO van de nieuwe ticket word gestoken moet verwijderd worden uit de oude ticket
-
-            ticket.addTableReservation(tableReservation);
-            tableReservation.setTicket(ticket);
+            //ticket.addTableReservation(tableReservation);
+            //tableReservation.setTicket(ticket);
 
             TicketHandler ticketHandler = TicketHandler.getInstance();
             ticketHandler.AddTicket(ticket);
+
+            handleTicketMove(ticket, event);
 
             event.consume();
             setupLayout();
@@ -81,15 +80,7 @@ public class DetailController implements IHaveStage {
                 Ticket selectedTicket = (Ticket) lv_list_of_tickets.getSelectionModel().getSelectedItem();
                 System.out.println("Ticket selected: " + selectedTicket.getName());
 
-                if(tableReservation.getTicket() != null){
-                    tableReservation.getTicket().removeTableReservation(tableReservation);
-                }
-
-                selectedTicket.addTableReservation(tableReservation);
-                tableReservation.setTicket(selectedTicket);
-
-                setupLayout();
-                event.consume();
+                handleTicketMove(selectedTicket, event);
             }
         });
 
@@ -119,6 +110,17 @@ public class DetailController implements IHaveStage {
                 }
             }
         });
+    }
+    private void handleTicketMove(Ticket selectedTicket, MouseEvent event){
+        if(tableReservation.getTicket() != null){
+            tableReservation.getTicket().removeTableReservation(tableReservation);
+        }
+
+        selectedTicket.addTableReservation(tableReservation);
+        tableReservation.setTicket(selectedTicket);
+
+        setupLayout();
+        event.consume();
     }
     private void setupLayout(){
         table_reservation_name.setText(tableReservation.getName());
