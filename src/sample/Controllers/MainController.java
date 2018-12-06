@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.Handlers.ProductsManager;
 import sample.Handlers.TableManager;
 import sample.Handlers.TicketHandler;
 import sample.Objects.TableReservation;
@@ -25,10 +26,12 @@ public class MainController implements IHaveStage, IOpenTableReservations {
     @FXML private ImageView pool1, pool2, pool3, pool4, pool5, pool6, pool7, pool8, pool9, pool10;
     private ImageView[] imageViews;
 
+    private ProductsManager productsManager;
+
     TableManager tableManager;
 
     public MainController(){
-
+        productsManager = ProductsManager.getInstance();
     }
 
     public void setUser(User user){

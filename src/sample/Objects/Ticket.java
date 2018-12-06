@@ -57,4 +57,9 @@ public class Ticket {
     public void stopTable(TableReservation reservation){
         reservation.stopTableTimer();
     }
+
+    @Override
+    public String toString(){
+        return name + " (" + String.valueOf(tableReservations != null? tableReservations.size(): 0) + " tables)";
+    }
 }

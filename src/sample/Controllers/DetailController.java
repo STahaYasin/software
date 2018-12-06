@@ -9,12 +9,11 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import sample.CellViews.TableCellView;
+import sample.Handlers.ProductsManager;
 import sample.Handlers.TicketHandler;
-import sample.Objects.Table;
-import sample.Objects.TableReservation;
-import sample.Objects.Ticket;
+import sample.Objects.*;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 
@@ -30,6 +29,11 @@ public class DetailController implements IHaveStage {
     @FXML ListView lv_list_of_tables_in_same_ticket;
 
     @FXML Button btn_add_new_ticket;
+
+    @FXML ListView detail_products_list;
+    @FXML ListView detail_products_on_table_list;
+
+    private ProductsManager productsManager;
 
     private ObservableList<Ticket> ticketList;
     private ObservableList<TableReservation> tableList;
@@ -49,6 +53,7 @@ public class DetailController implements IHaveStage {
      * To help with resetting the layout, the setup is encapsulated in setupLayout method.
      */
     private void setup(){
+        setupProducts();
         setupLayout();
 
         btn_add_new_ticket.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -127,6 +132,22 @@ public class DetailController implements IHaveStage {
 
         setupTickets();
         setupTables();
+        setupProductsOnTable();
+    }
+    private void setupProducts(){
+        productsManager = ProductsManager.getInstance();
+
+        ObservableList<Product> productsList = FXCollections.observableArrayList();
+        productsList.addAll(productsManager.getProducts());
+
+        detail_products_list.setItems(productsList);
+    }
+    private void setupProductsOnTable(){
+
+        ObservableList<Order> productsList = FXCollections.observableArrayList();
+        productsList.addAll(tableReservation.getOrders());
+
+        detail_products_on_table_list.setItems(productsList);
     }
     private void setupTickets(){
         TicketHandler ticketHandler = TicketHandler.getInstance();

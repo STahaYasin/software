@@ -42,6 +42,11 @@
                </TabPane>
            </children>
        </Pane>
-       <Pane layoutX="380.0" layoutY="80.0" prefHeight="641.0" prefWidth="900.0" />
+       <Pane layoutX="380.0" layoutY="80.0" prefHeight="641.0" prefWidth="900.0">
+         <children>
+            <ListView fx:id="detail_products_list" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
+            <ListView fx:id="detail_products_on_table_list" layoutX="277.0" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
+            <Label layoutX="277.0" layoutY="14.0" />
+         </children></Pane>
    </children>
 </Pane>

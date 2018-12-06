@@ -35,12 +35,21 @@ public class Order {
     public void Remove(){
         Remove(1);
     }
-    public void Remove(int count){
+    public boolean Remove(int count){
         if(this.count < count){
             this.count = 0;
         }
         else{
             this.count -= count;
         }
+        if(this.count <= 0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString(){
+        return String.valueOf(count) + " x " + product.toString();
     }
 }
