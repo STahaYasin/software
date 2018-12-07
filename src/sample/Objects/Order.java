@@ -7,11 +7,12 @@ public class Order {
     private Product product;
     private int count;
 
-    public Order(Product product){
+    public Order(Product product, int count){
         this.product = product;
+        this.count = count;
     }
 
-    public int getPrice(){
+    public double getPrice(){
         if(product == null) return 0;
 
         return product.getPrice() * count;

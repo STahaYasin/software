@@ -21,7 +21,6 @@ public class TableReservation {
         this.table = table;
         this.resetTableHandler = resetTableHandler;
         orders = new ArrayList<>();
-        orders.add(new Order(new Product()));
     }
     private void startTableTimer() throws Exception{
         if(ticket == null) throw new TicketNotSetException("Tried to start table timer on a table without a ticket injected.");
@@ -36,6 +35,12 @@ public class TableReservation {
         return "Reservation: " + table.getName();
     }
     public ArrayList<Order> getOrders(){ return orders; }
+
+    public void AddOrder(Order order){
+        if(orders == null) orders = new ArrayList<>();
+
+        orders.add(order);
+    }
 
     public class TicketNotSetException extends Exception{
         public TicketNotSetException(String s){ super(s); }

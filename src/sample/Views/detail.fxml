@@ -47,6 +47,7 @@
             <ListView fx:id="detail_products_list" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
             <ListView fx:id="detail_products_on_table_list" layoutX="277.0" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
             <Label layoutX="277.0" layoutY="14.0" />
+            <Label layoutX="279.0" layoutY="565.0" prefHeight="51.0" prefWidth="264.0" text="TOTAL" textAlignment="RIGHT" />
          </children></Pane>
    </children>
 </Pane>

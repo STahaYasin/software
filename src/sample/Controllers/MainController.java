@@ -45,25 +45,6 @@ public class MainController implements IHaveStage, IOpenTableReservations {
             e.printStackTrace();
         }
     }
-    private void openDetailWindow(TableReservation tableReservation) throws Exception{
-        if(tableReservation == null){
-            // TODO notify table reservation cannot be null
-
-            return;
-        }
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/detail.fxml"));
-
-        Stage stage1 = new Stage(StageStyle.DECORATED);
-        stage1.setScene(new Scene((Pane)loader.load()));
-        DetailController detailController = loader.<DetailController>getController();
-        detailController.setOpenTableReservationListener(this);
-        ((IHaveStage) detailController).setStage(stage1);
-
-        detailController.setTableReservation(tableReservation);
-
-        stage1.show();
-    }
 
     @FXML
     void initialize() {
@@ -91,6 +72,25 @@ public class MainController implements IHaveStage, IOpenTableReservations {
             name.setText(user.getName().getFirstname() + " " + user.getName().getLastName());
             username.setText(user.getName().getUsername() + " (" + user.getRole().getRoleName() + ")");
         });
+    }
+    private void openDetailWindow(TableReservation tableReservation) throws Exception{
+        if(tableReservation == null){
+            // TODO notify table reservation cannot be null
+
+            return;
+        }
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/detail.fxml"));
+
+        Stage stage1 = new Stage(StageStyle.DECORATED);
+        stage1.setScene(new Scene((Pane)loader.load()));
+        DetailController detailController = loader.<DetailController>getController();
+        detailController.setOpenTableReservationListener(this);
+        ((IHaveStage) detailController).setStage(stage1);
+
+        detailController.setTableReservation(tableReservation);
+
+        stage1.show();
     }
 
     public void setStage(Stage stage) {

@@ -140,6 +140,18 @@ public class DetailController implements IHaveStage {
         ObservableList<Product> productsList = FXCollections.observableArrayList();
         productsList.addAll(productsManager.getProducts());
 
+        detail_products_list.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2){
+                System.out.println(detail_products_list.getSelectionModel().getSelectedItem());
+
+                Order order = new Order((Product) detail_products_list.getSelectionModel().getSelectedItem(), 1);
+
+                tableReservation.AddOrder(order);
+
+                setupLayout();
+            }
+        });
+
         detail_products_list.setItems(productsList);
     }
     private void setupProductsOnTable(){

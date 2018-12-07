@@ -8,7 +8,7 @@ public class Product {
 
     private String name;
     private String description;
-    private int price; // in cents
+    private double price; // in cents
 
     private Stock stock;
 
@@ -26,7 +26,7 @@ public class Product {
     public int getProductId(){
         return product_id;
     }
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
 

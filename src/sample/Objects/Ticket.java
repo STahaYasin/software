@@ -23,8 +23,6 @@ public class Ticket {
     public void addProductToOrders(Product product){
         if(orders == null)
             orders = new ArrayList<>();
-
-        orders.add(new Order(product));
     }
 
     public void addTable(Table table){
