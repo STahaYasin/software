@@ -4,10 +4,13 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.Handlers.ProductsManager;
@@ -24,6 +27,7 @@ public class MainController implements IHaveStage, IOpenTableReservations {
     @FXML private Label name;
     @FXML private Label username;
     @FXML private ImageView pool1, pool2, pool3, pool4, pool5, pool6, pool7, pool8, pool9, pool10;
+    @FXML private Button lock;
     private ImageView[] imageViews;
 
     private ProductsManager productsManager;
@@ -95,5 +99,18 @@ public class MainController implements IHaveStage, IOpenTableReservations {
 
     public void setStage(Stage stage) {
        this.stage = stage;
+    }
+    public void lock() throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Lock.fxml"));
+        Stage settingsStage = new Stage();
+        settingsStage.setScene(new Scene((Pane)loader.load()));
+
+        LockController lockController = loader.<LockController>getController();
+        ((IHaveStage) lockController).setStage(settingsStage);
+        settingsStage.setTitle("Settings");
+        settingsStage.setResizable(false);
+        settingsStage.initStyle(StageStyle.TRANSPARENT);
+        settingsStage.initModality(Modality.APPLICATION_MODAL);
+        settingsStage.showAndWait();
     }
 }
