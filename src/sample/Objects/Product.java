@@ -8,7 +8,7 @@ public class Product {
 
     private String name;
     private String description;
-    private double price; // in cents
+    private double price;
 
     private Stock stock;
 
@@ -32,7 +32,7 @@ public class Product {
 
     public void setName(String name){ this.name = name; }
     public void setDescription(String description) { this.description = description; }
-    public void setPrice(int price){ this.price = price; }
+    public void setPrice(double price){ this.price = price; }
 
     public Product(){
         this(-1);

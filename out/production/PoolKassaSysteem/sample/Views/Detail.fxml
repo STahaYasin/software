@@ -15,7 +15,7 @@
                <Label fx:id="table_reservation_name" layoutX="14.0" layoutY="31.0" text="Label" />
            </children>
        </Pane>
-       <Pane layoutX="0.0" layoutY="80.0" prefHeight="640.0" prefWidth="380.0">
+       <Pane layoutX="0.0" prefHeight="720.0" prefWidth="378.0">
            <children>
                <TabPane fx:id="tab_pane" layoutX="15.0" layoutY="15.0" prefHeight="610.0" prefWidth="350.0" tabClosingPolicy="UNAVAILABLE">
                    <tabs>
@@ -44,10 +44,17 @@
        </Pane>
        <Pane layoutX="380.0" layoutY="80.0" prefHeight="641.0" prefWidth="900.0">
          <children>
-            <ListView fx:id="detail_products_list" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
-            <ListView fx:id="detail_products_on_table_list" layoutX="277.0" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
+            <ListView fx:id="detail_products_list" layoutX="14.0" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
+            <ListView fx:id="detail_products_on_table_list" layoutX="288.0" layoutY="48.0" prefHeight="503.0" prefWidth="264.0" />
             <Label layoutX="277.0" layoutY="14.0" />
-            <Label layoutX="279.0" layoutY="565.0" prefHeight="51.0" prefWidth="264.0" text="TOTAL" textAlignment="RIGHT" />
+            <Label fx:id="total_orders" layoutX="288.0" layoutY="562.0" prefHeight="51.0" prefWidth="264.0" text="TOTAL" textAlignment="RIGHT" />
+            <Button fx:id="start" layoutX="584.0" layoutY="68.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Start" />
+            <Button fx:id="stop" layoutX="764.0" layoutY="68.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Stop" />
+            <Label layoutX="701.0" layoutY="24.0" text="Timer table" textFill="#353535" />
+            <Button fx:id="btn_checkout" layoutX="733.0" layoutY="562.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="140.0" text="Checkout" />
+            <Label fx:id="total_price" layoutX="574.0" layoutY="578.0" text="PRICE TO PAY: €0" />
+            <Label layoutX="584.0" layoutY="131.0" text="Time in minutes" />
          </children></Pane>
+      <Pane layoutX="378.0" layoutY="0" prefHeight="720.0" prefWidth="2.0" style="-fx-background-color: #757575;" />
    </children>
 </Pane>

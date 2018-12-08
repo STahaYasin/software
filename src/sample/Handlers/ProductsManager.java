@@ -40,7 +40,7 @@ public class ProductsManager {
                 Product product = new Product(sqlProduct.getInt("product_id"));
                 product.setName(sqlProduct.getString("name"));
                 product.setDescription(sqlProduct.getString("description"));
-                product.setPrice(sqlProduct.getInt("price"));
+                product.setPrice(sqlProduct.getDouble("price"));
 
                 products.add(product);
             }

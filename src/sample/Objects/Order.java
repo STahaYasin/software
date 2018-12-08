@@ -51,6 +51,6 @@ public class Order {
 
     @Override
     public String toString(){
-        return String.valueOf(count) + " x " + product.toString();
+        return String.valueOf(count) + " x " + product.toString() + ": " + String.valueOf(product.getPrice() * count);
     }
 }

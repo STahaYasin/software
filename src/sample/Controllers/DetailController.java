@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -13,7 +14,10 @@ import sample.Handlers.ProductsManager;
 import sample.Handlers.TicketHandler;
 import sample.Objects.*;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Optional;
 
 
@@ -21,17 +25,15 @@ public class DetailController implements IHaveStage {
     private Stage stage;
     private IOpenTableReservations iOpenTableReservations;
 
-    @FXML private Label table_reservation_name;
+    @FXML private Label table_reservation_name, total_orders,total_price;
 
     @FXML TabPane tab_pane;
     @FXML Tab tab_tables_in_same_ticket;
-    @FXML ListView lv_list_of_tickets;
-    @FXML ListView lv_list_of_tables_in_same_ticket;
+    @FXML ListView lv_list_of_tickets, lv_list_of_tables_in_same_ticket;
 
-    @FXML Button btn_add_new_ticket;
+    @FXML Button btn_add_new_ticket, start, stop, btn_checkout;
 
-    @FXML ListView detail_products_list;
-    @FXML ListView detail_products_on_table_list;
+    @FXML ListView detail_products_list, detail_products_on_table_list;
 
     private ProductsManager productsManager;
 
@@ -115,6 +117,18 @@ public class DetailController implements IHaveStage {
                 }
             }
         });
+
+        start.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
+            if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1){
+                tableReservation.startTableTimer();
+            }
+        });
+        stop.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
+            if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1){
+                tableReservation.stopTableTimer();
+                printTotalPrice();
+            }
+        });
     }
     private void handleTicketMove(Ticket selectedTicket, MouseEvent event){
         if(tableReservation.getTicket() != null){
@@ -129,7 +143,7 @@ public class DetailController implements IHaveStage {
     }
     private void setupLayout(){
         table_reservation_name.setText(tableReservation.getName());
-
+        total_orders.setAlignment(Pos.CENTER_RIGHT);
         setupTickets();
         setupTables();
         setupProductsOnTable();
@@ -160,6 +174,8 @@ public class DetailController implements IHaveStage {
         productsList.addAll(tableReservation.getOrders());
 
         detail_products_on_table_list.setItems(productsList);
+        total_orders.setText("TOTAL: €" + tableReservation.getPriceOfOrders());
+        printTotalPrice();
     }
     private void setupTickets(){
         TicketHandler ticketHandler = TicketHandler.getInstance();
@@ -178,8 +194,6 @@ public class DetailController implements IHaveStage {
         tableList = FXCollections.observableArrayList();
         tab_tables_in_same_ticket.setDisable(false);
 
-        Table table = new Table();
-        table.setName("Bla bla");
         tableList.addAll(tableReservation.getTicket().getTableReservations());
         lv_list_of_tables_in_same_ticket.setItems(tableList);
 
@@ -193,5 +207,10 @@ public class DetailController implements IHaveStage {
     }
     public void setOpenTableReservationListener(IOpenTableReservations iOpenTableReservations){
         this.iOpenTableReservations = iOpenTableReservations;
+    }
+
+    private void printTotalPrice(){
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(Locale.GERMANY);
+        total_price.setText("Price To Pay: " + numberFormat.format(tableReservation.getPrice()));
     }
 }

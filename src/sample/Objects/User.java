@@ -33,6 +33,7 @@ public class User {
         ResultSet sqlUser = statement.executeQuery("SELECT * FROM users WHERE user_id = " + user_id + " LIMIT 1");
 
         if(sqlUser.next()){
+            int a = sqlUser.getInt("role_id");
             role = Role.Create(sqlUser.getInt("role_id"));
         }
 

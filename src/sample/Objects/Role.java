@@ -34,7 +34,7 @@ public class Role {
 
         Connection connection = SQLConnectionManager.getConnection();
         Statement statement = connection.createStatement();
-        ResultSet sqlRole = statement.executeQuery("SELECT * FROM software.roles WHERE role_id = 1 LIMIT 1;");
+        ResultSet sqlRole = statement.executeQuery("SELECT * FROM software.roles WHERE role_id = " + roleId + " LIMIT 1;");
 
         if(! sqlRole.next()){
             return null;

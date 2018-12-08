@@ -16,6 +16,7 @@
                     </image></ImageView>
                 <Label fx:id="name" layoutX="76.0" layoutY="14.0" text="Name Name" />
                 <Label fx:id="username" layoutX="76.0" layoutY="31.0" text="Username" />
+            <Button id="lock" layoutX="1195.0" layoutY="18.0" mnemonicParsing="false" onAction="#lock" prefHeight="29.0" prefWidth="72.0" text="Lock" />
             </children>
         </Pane>
       <ImageView fx:id="pool1" fitHeight="122.0" fitWidth="228.0" layoutX="105.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
@@ -68,6 +69,5 @@
             <Image url="@../Images/pool.jpg" />
          </image>
       </ImageView>
-      <Button id="lock" layoutX="371.0" layoutY="348.0" mnemonicParsing="false" onAction="#lock" text="Lock" />
     </children>
 </Pane>

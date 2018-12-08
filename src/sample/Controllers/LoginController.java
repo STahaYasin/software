@@ -3,26 +3,17 @@ package sample.Controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-import javafx.scene.layout.Pane;
-import javafx.stage.StageStyle;
 import sample.Exceptions.IncorectPasswordException;
 import sample.Exceptions.UserNotFoundException;
 import sample.Handlers.AlertHandler;
 import sample.Handlers.PasswordHandler;
-import sample.Main;
 import javafx.stage.Stage;
-import sample.Controllers.MainController;
 import sample.Objects.User;
-
-import javax.swing.*;
-import java.io.IOException;
 
 
 public class LoginController implements IHaveStage {
@@ -66,7 +57,19 @@ public class LoginController implements IHaveStage {
 
             user = User.Create(un, hash);
 
-            System.out.println("Logged in");
+            if(user == null){
+                AlertHandler.ShowWarning("", "Login failed", "Bruhhh");
+                return;
+            }
+
+            switch (user.getRole().getRoleCode().toLowerCase()){
+                case "ad": {
+                    goToAdminView(user);
+                } break;
+                case "ob": {
+                    goToTablesView(user);
+                } break;
+            }
         }
         catch (UserNotFoundException e){
             AlertHandler.ShowWarning("", "Login failed", "No user found for this username");
@@ -77,17 +80,26 @@ public class LoginController implements IHaveStage {
         catch (Exception e) {
             AlertHandler.ShowError("Error!", "Exception", e.getMessage());
         }
-
-        if(user == null) return;
-        goToDifferentView(user);
     }
 
-    private void goToDifferentView(User user) throws Exception{
+    private void goToTablesView(User user) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/main.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         MainController mainController = fxmlLoader.getController();
         mainController.setUser(user);
         ((IHaveStage) mainController).setStage(stage);
+
+        Scene scene = new Scene(root, 1280, 720);
+        stage.setScene(scene);
+
+        stage.show();
+    }
+    private void goToAdminView(User user) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/Admin.fxml"));
+        Parent root = (Parent) fxmlLoader.load();
+        AdminController adminController = fxmlLoader.getController();
+        adminController.setUser(user);
+        ((IHaveStage) adminController).setStage(stage);
 
         Scene scene = new Scene(root, 1280, 720);
         stage.setScene(scene);

@@ -15,8 +15,11 @@ public class TableManager {
         tables = new Table[countOfTables];
 
         for(int i = 0; i < countOfTables; i ++){
-            tables[i] = new Table();
-            tables[i].setName("Table " + (i + 1));
+            try {
+                tables[i] = new Table(i + 1);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

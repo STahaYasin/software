@@ -1,6 +1,5 @@
 package sample;
 
-import com.mysql.cj.Query;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,14 +8,6 @@ import javafx.stage.Stage;
 import sample.Controllers.IHaveStage;
 import sample.Controllers.LoginController;
 import sample.Controllers.StageHolder;
-import sample.Objects.User;
-import sample.SQL_Classes.SQLConnectionManager;
-
-import javax.jws.soap.SOAPBinding;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Main extends Application {
 
@@ -28,9 +19,9 @@ public class Main extends Application {
         stageHolder.setStage(primaryStage);
 
         window = primaryStage;
-        //Parent root = FXMLLoader.load(getClass().getResource("Views/sample.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("Views/Login.fxml"));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Views/sample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Views/Login.fxml"));
         Parent root = fxmlLoader.load();
 
         LoginController loginController = fxmlLoader.<LoginController>getController();
