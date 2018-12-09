@@ -33,7 +33,7 @@ public class DetailController implements IHaveStage {
 
     @FXML Button btn_add_new_ticket, start, stop, btn_checkout;
 
-    @FXML ListView detail_products_list, detail_products_on_table_list;
+    @FXML ListView detail_products_list, detail_products_on_table_list, times_listview;
 
     private ProductsManager productsManager;
 
@@ -121,12 +121,13 @@ public class DetailController implements IHaveStage {
         start.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
             if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1){
                 tableReservation.startTableTimer();
+                setupLayout();
             }
         });
         stop.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
             if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1){
                 tableReservation.stopTableTimer();
-                printTotalPrice();
+                setupLayout();
             }
         });
     }
@@ -147,6 +148,7 @@ public class DetailController implements IHaveStage {
         setupTickets();
         setupTables();
         setupProductsOnTable();
+        setupTimers();
     }
     private void setupProducts(){
         productsManager = ProductsManager.getInstance();
@@ -199,6 +201,16 @@ public class DetailController implements IHaveStage {
 
         SelectionModel<Tab> selectionModel = tab_pane.getSelectionModel();
         selectionModel.select(tab_tables_in_same_ticket);
+    }
+    private void setupTimers(){
+        ObservableList<StartStopHolder> startStopHolders = FXCollections.observableArrayList();
+        startStopHolders.addAll(tableReservation.getTimes());
+
+        times_listview.setItems(startStopHolders);
+        times_listview.refresh();
+
+        printTotalPrice();
+        System.out.println("Setup timers");
     }
 
     @Override

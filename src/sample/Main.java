@@ -10,6 +10,8 @@ import sample.Controllers.LoginController;
 import sample.Controllers.StageHolder;
 
 public class Main extends Application {
+    public static final int WINDOW_WIDTH = 1280;
+    public static final int WINDOW_HEIGHT = 720;
 
     private static Stage window;
 
@@ -28,7 +30,7 @@ public class Main extends Application {
         ((IHaveStage) loginController).setStage(primaryStage);
 
         primaryStage.setTitle("Kassa systeem");
-        primaryStage.setScene(new Scene(root, 1280, 720));
+        primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
         primaryStage.show();
     }
 

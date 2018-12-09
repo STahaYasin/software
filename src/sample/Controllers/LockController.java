@@ -3,6 +3,7 @@ package sample.Controllers;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -18,6 +19,9 @@ public class LockController implements IHaveStage {
     @FXML
     Button nm1,nm2,nm3,nm4,nm5,nm6,nm7,nm8,nm9,nm0;
 
+    @FXML
+    CheckBox ch_1, ch_2, ch_3, ch_4;
+
     Button[] buttons;
 
     public static void main(String[] args) {
@@ -30,6 +34,7 @@ public class LockController implements IHaveStage {
             buttons = new Button[] {nm1,nm2,nm3,nm4,nm5,nm6,nm7,nm8,nm9,nm0};
 
             TicketHandler ticketHandler = TicketHandler.getInstance();
+            setup();
 
             for(int i = 0; i < buttons.length; i ++){
                 Button button = buttons[i];
@@ -48,10 +53,32 @@ public class LockController implements IHaveStage {
             //          username.setText(user.getName().getUsername() + " (" + user.getRole().getRoleName() + ")");
         });
     }
+
+    private void setup(){
+        ch_1.setDisable(true);
+        ch_2.setDisable(true);
+        ch_3.setDisable(true);
+        ch_4.setDisable(true);
+
+        setupLayout();
+    }
+    private void setupLayout(){
+        CheckBox[] checkBoxes = {ch_1, ch_2, ch_3, ch_4};
+
+        for(CheckBox checkBox: checkBoxes){
+            checkBox.setSelected(false);
+        }
+
+        for(int i = 0; i < pressedNumbers.size(); i ++){
+            checkBoxes[i].setSelected(true);
+        }
+    }
+
     private void numberPressed(int number){
         if(pressedNumbers == null) pressedNumbers = new ArrayList<>();
 
         pressedNumbers.add(number);
+        setupLayout();
 
         if(pressedNumbers.size() == 4){ // bv4 hier lengte van pin aanpassen
             StringBuilder stringBuilder = new StringBuilder();

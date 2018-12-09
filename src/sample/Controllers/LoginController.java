@@ -13,6 +13,7 @@ import sample.Exceptions.UserNotFoundException;
 import sample.Handlers.AlertHandler;
 import sample.Handlers.PasswordHandler;
 import javafx.stage.Stage;
+import sample.Main;
 import sample.Objects.User;
 
 
@@ -89,7 +90,7 @@ public class LoginController implements IHaveStage {
         mainController.setUser(user);
         ((IHaveStage) mainController).setStage(stage);
 
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(scene);
 
         stage.show();
@@ -101,7 +102,7 @@ public class LoginController implements IHaveStage {
         adminController.setUser(user);
         ((IHaveStage) adminController).setStage(stage);
 
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT);
         stage.setScene(scene);
 
         stage.show();

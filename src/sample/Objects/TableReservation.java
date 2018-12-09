@@ -16,8 +16,7 @@ public class TableReservation {
     private ResetTableHandler resetTableHandler;
     private ArrayList<Order> orders;
 
-    private LocalDateTime startTime;
-    private LocalDateTime stopTime;
+    private ArrayList<StartStopHolder> times;
 
     private Table table;
 
@@ -25,35 +24,46 @@ public class TableReservation {
         this.ticket = ticket;
     }
     public Ticket getTicket() { return ticket; }
+    public ArrayList<StartStopHolder> getTimes(){ return this.times; }
 
     public TableReservation(Table table, ResetTableHandler resetTableHandler){
         this.table = table;
         this.resetTableHandler = resetTableHandler;
         orders = new ArrayList<>();
+        times = new ArrayList<>();
     }
     public void startTableTimer(){
-        //if(ticket == null) throw new TicketNotSetException("Tried to start table timer on a table without a ticket injected.");
+        if(times == null) times = new ArrayList<>();
 
-        startTime = LocalDateTime.now();
-        System.out.println(startTime.toString());
+        if(times.isEmpty() || !times.get(times.size() - 1).isRunning()){
+            times.add(new StartStopHolder());
+        }
+        else{
+            System.out.println("First stop the running timer");
+        }
     }
     public void stopTableTimer(){
-        if(startTime == null) throw new IllegalStateException("Cannot stop a timet that's not started");
-        stopTime = LocalDateTime.now();
+        if(times == null || times.isEmpty()) return;
+
+        StartStopHolder startStopHolder = times.get(times.size() - 1);
+
+        if(startStopHolder.isRunning()){
+            startStopHolder.Stop();
+            System.out.println("Timer stopped");
+        }
+        else{
+            System.out.println("Timer already stopped, start another one before stopping it.");
+        }
     }
     public long getSeconds(){
-        if(startTime == null) return 0;
-        //Period period = Period.between(LocalDate.parse(stopTime.toString()), LocalDate.parse(startTime.toString()));
-        //System.out.println(period.);
+        long a = 0;
 
-        LocalDateTime a;
-        if(stopTime == null) a = LocalDateTime.now();
-        else a = stopTime;
+        for(StartStopHolder startStopHolder: times){
+            if(startStopHolder == null) continue;
+            a += startStopHolder.getTime();
+        }
 
-        Duration duration = Duration.between(startTime, a);
-        System.out.println(duration.getSeconds());
-
-        return duration.getSeconds();
+        return a;
     }
 
     public String getName(){
