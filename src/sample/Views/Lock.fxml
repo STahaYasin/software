@@ -20,5 +20,6 @@
       <CheckBox fx:id="ch_1" layoutX="860.0" layoutY="299.0" mnemonicParsing="false" />
       <CheckBox fx:id="ch_3" layoutX="948.0" layoutY="299.0" mnemonicParsing="false" />
       <CheckBox fx:id="ch_4" layoutX="990.0" layoutY="299.0" mnemonicParsing="false" />
+      <Button fx:id="nmclr" layoutX="1030.0" layoutY="637.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="60.0" text="CLEAR" />
    </children>
 </AnchorPane>

@@ -20,9 +20,13 @@ public class User {
     private Name name;
     private Role role;
 
+    private String pin;
+
     public int getUser_id(){ return user_id; }
     public Name getName(){ return name; }
     public Role getRole(){ return role; }
+    private void setPin(String pin){ this.pin = pin; }
+    public String getPin() {return pin; }
 
     public User(Integer userId) throws SQLException{
         this.user_id = userId;
@@ -60,7 +64,7 @@ public class User {
 
         int userId = sqlUserId.getInt("user_id");
 
-        ResultSet sqlHash = statement.executeQuery("SELECT hash FROM passwords WHERE user_id = " + userId + " LIMIT 1");
+        ResultSet sqlHash = statement.executeQuery("SELECT hash, pin FROM passwords WHERE user_id = " + userId + " LIMIT 1");
 
         if(! sqlHash.next()){
             connection.close();
@@ -73,6 +77,8 @@ public class User {
         }
 
         User user = new User(userId);
+        user.setPin(sqlHash.getString("pin"));
+
         connection.close();
         return user;
     }

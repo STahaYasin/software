@@ -106,6 +106,7 @@ public class MainController implements IHaveStage, IOpenTableReservations {
         settingsStage.setScene(new Scene((Pane)loader.load()));
 
         LockController lockController = loader.<LockController>getController();
+        lockController.setPin(user.getPin());
         ((IHaveStage) lockController).setStage(settingsStage);
         settingsStage.setTitle("Settings");
         settingsStage.setResizable(false);
