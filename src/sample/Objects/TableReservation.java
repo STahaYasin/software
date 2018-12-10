@@ -1,17 +1,10 @@
 package sample.Objects;
 
 import sample.Handlers.ResetTableHandler;
-import sample.Objects.Table;
 
-import java.sql.SQLOutput;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.ArrayList;
-import java.util.Date;
 
-public class TableReservation {
+public class TableReservation implements Payable {
     private Ticket ticket;
     private ResetTableHandler resetTableHandler;
     private ArrayList<Order> orders;
@@ -89,6 +82,7 @@ public class TableReservation {
         return a;
     }
 
+    @Override
     public double getPrice(){
         double a = 0;
 
@@ -102,5 +96,9 @@ public class TableReservation {
     @Override
     public String toString(){
         return table.toString() + " (" + String.valueOf(orders != null? orders.size(): 0) + " products)";
+    }
+
+    public void Delete(){
+        resetTableHandler.ResetTable();
     }
 }

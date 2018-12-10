@@ -84,7 +84,7 @@ public class LoginController implements IHaveStage {
     }
 
     private void goToTablesView(User user) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Views/Main.fxml"));
         Parent root = (Parent) fxmlLoader.load();
         MainController mainController = fxmlLoader.getController();
         mainController.setUser(user);

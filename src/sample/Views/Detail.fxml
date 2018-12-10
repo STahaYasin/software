@@ -51,7 +51,7 @@
             <Button fx:id="start" layoutX="584.0" layoutY="68.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Start" />
             <Button fx:id="stop" layoutX="764.0" layoutY="68.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Stop" />
             <Label layoutX="701.0" layoutY="24.0" text="Timer table" textFill="#353535" />
-            <Button fx:id="btn_checkout" layoutX="733.0" layoutY="562.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="140.0" text="Checkout" />
+            <Button fx:id="btn_checkout_table" layoutX="733.0" layoutY="562.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="140.0" text="Checkout" />
             <Label fx:id="total_price" layoutX="574.0" layoutY="578.0" text="PRICE TO PAY: €0" />
             <Label layoutX="574.0" layoutY="126.0" text="Time in minutes" />
             <ListView fx:id="times_listview" layoutX="565.0" layoutY="145.0" prefHeight="406.0" prefWidth="321.0" />

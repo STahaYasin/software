@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -17,7 +16,6 @@ import sample.Handlers.ProductsManager;
 import sample.Handlers.TableManager;
 import sample.Handlers.TicketHandler;
 import sample.Objects.TableReservation;
-import sample.Objects.Ticket;
 import sample.Objects.User;
 
 public class MainController implements IHaveStage, IOpenTableReservations {
@@ -84,7 +82,7 @@ public class MainController implements IHaveStage, IOpenTableReservations {
             return;
         }
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/detail.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Detail.fxml"));
 
         Stage stage1 = new Stage(StageStyle.DECORATED);
         stage1.setScene(new Scene((Pane)loader.load()));

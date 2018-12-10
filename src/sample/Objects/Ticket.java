@@ -2,7 +2,7 @@ package sample.Objects;
 
 import java.util.ArrayList;
 
-public class Ticket {
+public class Ticket implements Payable {
     private int ticket_id;
 
     private ArrayList<Order> orders;
@@ -59,5 +59,17 @@ public class Ticket {
     @Override
     public String toString(){
         return name + " (" + String.valueOf(tableReservations != null? tableReservations.size(): 0) + " tables)";
+    }
+
+    @Override
+    public double getPrice() {
+        if(tableReservations == null || tableReservations.size() == 0) return 0;
+        double a = 0;
+
+        for(TableReservation tableReservation: tableReservations){
+            a += tableReservation.getPrice();
+        }
+
+        return a;
     }
 }

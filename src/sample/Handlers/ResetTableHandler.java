@@ -1,5 +1,7 @@
 package sample.Handlers;
 
+import sample.Objects.TableReservation;
+
 public class ResetTableHandler {
     private int index;
     private TableManager tableManager;

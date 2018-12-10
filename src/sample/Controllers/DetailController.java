@@ -5,13 +5,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.Handlers.ProductsManager;
+import sample.Handlers.TableManager;
 import sample.Handlers.TicketHandler;
+import sample.Main;
 import sample.Objects.*;
 
 import java.text.NumberFormat;
@@ -31,7 +37,7 @@ public class DetailController implements IHaveStage {
     @FXML Tab tab_tables_in_same_ticket;
     @FXML ListView lv_list_of_tickets, lv_list_of_tables_in_same_ticket;
 
-    @FXML Button btn_add_new_ticket, start, stop, btn_checkout;
+    @FXML Button btn_add_new_ticket, start, stop, btn_checkout_table;
 
     @FXML ListView detail_products_list, detail_products_on_table_list, times_listview;
 
@@ -128,6 +134,33 @@ public class DetailController implements IHaveStage {
             if(event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1){
                 tableReservation.stopTableTimer();
                 setupLayout();
+            }
+        });
+        btn_checkout_table.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Pay.fxml"));
+
+                Stage stage1 = new Stage(StageStyle.DECORATED);
+                stage1.setScene(new Scene((Pane)loader.load(), Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+
+                PayController payController = loader.<PayController>getController();
+                payController.setPayable(tableReservation);
+                payController.setOnPayListener(new OnPayListener() {
+                    @Override
+                    public void OnPayed(Payable payable) {
+                        TableReservation payedTableReservation = (TableReservation) payable;
+                        if (payedTableReservation.getTicket() != null)
+                            payedTableReservation.getTicket().removeTableReservation(payedTableReservation);
+                        tableReservation.Delete();
+                        stage.close();
+                    }
+                });
+                ((IHaveStage) payController).setStage(stage1);
+
+                stage1.show();
+            }
+            catch (Exception e){
+                e.printStackTrace();
             }
         });
     }
