@@ -1,5 +1,6 @@
 package sample.Objects;
 
+import javafx.scene.control.Label;
 import sample.Handlers.ResetTableHandler;
 
 import java.util.ArrayList;
@@ -12,6 +13,13 @@ public class TableReservation implements Payable {
     private ArrayList<StartStopHolder> times;
 
     private Table table;
+
+    private Label label;
+
+    public void setLabel(Label label){
+        this.label = label;
+    }
+    public Label getLabel(){ return label; }
 
     public void setTicket(Ticket ticket){
         this.ticket = ticket;
@@ -99,6 +107,7 @@ public class TableReservation implements Payable {
     }
 
     public void Delete(){
+        label.setText("");
         resetTableHandler.ResetTable();
     }
 }

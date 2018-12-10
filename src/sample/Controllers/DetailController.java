@@ -59,6 +59,7 @@ public class DetailController implements IHaveStage {
      * To help with resetting the layout, the setup is encapsulated in setupLayout method.
      */
     private void setup(){
+        tableReservation.getLabel().setText(tableReservation.getName());
         setupProducts();
         setupLayout();
 
@@ -236,6 +237,7 @@ public class DetailController implements IHaveStage {
         detail_products_list.setItems(productsList);
     }
     private void setupProductsOnTable(){
+
 
         ObservableList<Order> productsList = FXCollections.observableArrayList();
         productsList.addAll(tableReservation.getOrders());

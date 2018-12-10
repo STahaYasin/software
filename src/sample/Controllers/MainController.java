@@ -1,6 +1,7 @@
 package sample.Controllers;
 
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.Handlers.ProductsManager;
 import sample.Handlers.TableManager;
+import sample.Handlers.TableTimesShowUpdateHandler;
 import sample.Handlers.TicketHandler;
 import sample.Objects.TableReservation;
 import sample.Objects.User;
@@ -25,6 +27,7 @@ public class MainController implements IHaveStage, IOpenTableReservations {
     @FXML private Label name;
     @FXML private Label username;
     @FXML private ImageView pool1, pool2, pool3, pool4, pool5, pool6, pool7, pool8, pool9, pool10;
+    @FXML private Label lbl_1, lbl_2, lbl_3, lbl_4, lbl_5, lbl_6, lbl_7, lbl_8, lbl_9, lbl_10;
     @FXML private Button lock;
     private ImageView[] imageViews;
 
@@ -51,6 +54,14 @@ public class MainController implements IHaveStage, IOpenTableReservations {
     @FXML
     void initialize() {
         Platform.runLater(() ->{
+            final Thread mainThread = Thread.currentThread();
+
+            Label[] labels = {lbl_1, lbl_2, lbl_3, lbl_4, lbl_5, lbl_6, lbl_7, lbl_8, lbl_9, lbl_10};
+
+            for(Label label: labels){
+                label.setText("");
+            }
+
             imageViews = new ImageView[] {pool1, pool2, pool3, pool4, pool5, pool6, pool7, pool8, pool9, pool10};
             tableManager = TableManager.getInstance();
             tableManager.setTableButtons(imageViews.length);
@@ -63,6 +74,7 @@ public class MainController implements IHaveStage, IOpenTableReservations {
                 imageView.addEventHandler(MouseEvent.MOUSE_RELEASED, event -> {
                     try{
                         TableReservation tableReservation = tableManager.getTableReservation(index);
+                        tableReservation.setLabel(labels[index]);
                         openDetailWindow(tableReservation);
                     } catch (Exception e) {
                         System.out.println("Error with opening the window");

@@ -39,6 +39,9 @@ public class TableManager {
         if(tableReservations[tableIndex] == null) tableReservations[tableIndex] = new TableReservation(tables[tableIndex], new ResetTableHandler(tableIndex, this));
         return tableReservations[tableIndex];
     }
+    public TableReservation[] getTableReservations(){
+        return tableReservations;
+    }
 
     public void removeTableReservation(int index) {
         if(tableReservations == null || index < 0 || index > tableReservations.length) throw new IllegalArgumentException("Tried to remove a table that doesn't exist");

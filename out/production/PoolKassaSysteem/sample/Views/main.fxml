@@ -69,5 +69,15 @@
             <Image url="@../Images/pool.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="lbl_1" layoutX="105.0" layoutY="79.0" text="Label" />
+      <Label fx:id="lbl_2" layoutX="388.0" layoutY="79.0" text="Label" />
+      <Label fx:id="lbl_3" layoutX="664.0" layoutY="79.0" text="Label" />
+      <Label fx:id="lbl_4" layoutX="939.0" layoutY="79.0" text="Label" />
+      <Label fx:id="lbl_5" layoutX="1124.0" layoutY="226.0" text="Label" />
+      <Label fx:id="lbl_6" layoutX="939.0" layoutY="521.0" text="Label" />
+      <Label fx:id="lbl_7" layoutX="664.0" layoutY="521.0" text="Label" />
+      <Label fx:id="lbl_8" layoutX="388.0" layoutY="521.0" text="Label" />
+      <Label fx:id="lbl_9" layoutX="105.0" layoutY="521.0" text="Label" />
+      <Label fx:id="lbl_10" layoutX="48.0" layoutY="226.0" text="Label" />
     </children>
 </Pane>
