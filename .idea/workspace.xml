@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/Controllers/OnPayListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Controllers/PayController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Objects/Payable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Views/Pay.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/DetailController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Objects/TableReservation$TicketNotSetException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Objects/TableReservation$TicketNotSetException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Objects/TableReservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Objects/TableReservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Objects/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Objects/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Views/Detail.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PoolKassaSysteem/sample/Views/Detail.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controllers/DetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/DetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Handlers/ResetTableHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Handlers/ResetTableHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Objects/TableReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Objects/TableReservation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Objects/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Objects/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Views/detail.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Views/Detail.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Views/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Views/Detail.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Views/Detail.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,20 +82,20 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="500" />
-          <entry key="java" value="23198" />
+          <entry key="java" value="23569" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="23198" />
+          <entry key="JAVA" value="23569" />
           <entry key="XML" value="500" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="fxml" value="30" />
-          <entry key="java" value="140" />
+          <entry key="fxml" value="33" />
+          <entry key="java" value="141" />
           <entry key="jpg" value="1" />
           <entry key="xsl" value="1" />
         </counts>
@@ -123,8 +104,8 @@
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="140" />
-          <entry key="XML" value="31" />
+          <entry key="JAVA" value="141" />
+          <entry key="XML" value="34" />
         </counts>
       </usages-collector>
     </session>
@@ -173,7 +154,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/PayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
+            <state relative-caret-position="560">
               <caret line="44" column="26" lean-forward="true" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
               <folding>
                 <element signature="e#607#608#0" expanded="true" />
@@ -188,13 +169,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Controllers/DetailController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="153" column="50" lean-forward="true" selection-start-line="153" selection-start-column="50" selection-end-line="153" selection-end-column="50" />
+            <state relative-caret-position="394">
+              <caret line="184" column="45" lean-forward="true" selection-start-line="184" selection-start-column="45" selection-end-line="184" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1476#1477#0" expanded="true" />
                 <element signature="e#1522#1523#0" expanded="true" />
                 <element signature="e#5440#5455#0" expanded="true" />
+                <element signature="e#6787#6802#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Objects/Ticket.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+              <folding>
+                <element signature="e#1782#1783#0" expanded="true" />
+                <element signature="e#1822#1823#0" expanded="true" />
+                <element signature="e#1879#1880#0" expanded="true" />
+                <element signature="e#1923#1924#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -238,22 +235,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Controllers/OnPayListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Objects/TableReservation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+            <state relative-caret-position="554">
+              <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
               <folding>
                 <element signature="e#2724#2725#0" expanded="true" />
                 <element signature="e#2756#2757#0" expanded="true" />
@@ -326,7 +311,6 @@
         <option value="$PROJECT_DIR$/src/sample/Exceptions/IncorectPasswordException.java" />
         <option value="$PROJECT_DIR$/src/sample/Objects/Name.java" />
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/Views/Detail.fxml" />
         <option value="$PROJECT_DIR$/src/sample/LoginController.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/IHaveStage.java" />
         <option value="$PROJECT_DIR$/src/sample/CellViews/tablecellview.fxml" />
@@ -355,7 +339,6 @@
         <option value="$PROJECT_DIR$/src/sample/Views/Lock.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/LockController.java" />
         <option value="$PROJECT_DIR$/src/sample/Objects/Payable.java" />
-        <option value="$PROJECT_DIR$/src/sample/Objects/Ticket.java" />
         <option value="$PROJECT_DIR$/src/sample/Views/Pay.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Views/detail.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/OnPayListener.java" />
@@ -363,6 +346,8 @@
         <option value="$PROJECT_DIR$/src/sample/Controllers/PayController.java" />
         <option value="$PROJECT_DIR$/src/sample/Objects/TableReservation.java" />
         <option value="$PROJECT_DIR$/src/sample/Handlers/ResetTableHandler.java" />
+        <option value="$PROJECT_DIR$/src/sample/Views/Detail.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Objects/Ticket.java" />
         <option value="$PROJECT_DIR$/src/sample/Controllers/DetailController.java" />
       </list>
     </option>
@@ -523,7 +508,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544400721045" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544401621709" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Labs/Lab5/Lab5 Binary Tree" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -667,7 +652,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.10240964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6084337" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12048193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39156628" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -991,13 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Objects/Ticket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="74" column="1" lean-forward="true" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Views/Pay.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1005,14 +983,6 @@
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Views/Detail.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controllers/OnPayListener.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1053,19 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/PayController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="44" column="26" lean-forward="true" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-          <folding>
-            <element signature="e#607#608#0" expanded="true" />
-            <element signature="e#640#641#0" expanded="true" />
-            <element signature="e#948#949#0" expanded="true" />
-            <element signature="e#997#998#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Handlers/TableManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -1084,10 +1041,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Views/Detail.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controllers/PayController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="44" column="26" lean-forward="true" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+          <folding>
+            <element signature="e#607#608#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Objects/Ticket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="57" column="32" lean-forward="true" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+          <folding>
+            <element signature="e#1782#1783#0" expanded="true" />
+            <element signature="e#1822#1823#0" expanded="true" />
+            <element signature="e#1879#1880#0" expanded="true" />
+            <element signature="e#1923#1924#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Objects/TableReservation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+        <state relative-caret-position="554">
+          <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
           <folding>
             <element signature="e#2724#2725#0" expanded="true" />
             <element signature="e#2756#2757#0" expanded="true" />
@@ -1097,13 +1088,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controllers/DetailController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="153" column="50" lean-forward="true" selection-start-line="153" selection-start-column="50" selection-end-line="153" selection-end-column="50" />
+        <state relative-caret-position="394">
+          <caret line="184" column="45" lean-forward="true" selection-start-line="184" selection-start-column="45" selection-end-line="184" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1476#1477#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
             <element signature="e#5440#5455#0" expanded="true" />
+            <element signature="e#6787#6802#0" expanded="true" />
           </folding>
         </state>
       </provider>

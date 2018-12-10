@@ -49,6 +49,16 @@ public class Ticket implements Payable {
 
         tableReservations.add(tableReservation);
     }
+
+    public void NotifyPayed(){
+        if(tableReservations == null || tableReservations.size() == 0) return;
+
+        for(TableReservation tableReservation: tableReservations){
+            if(tableReservation == null) continue;
+            tableReservation.Delete();
+        }
+    }
+
     public ArrayList<TableReservation> getTableReservations(){
         return tableReservations;
     }

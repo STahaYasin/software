@@ -34,6 +34,7 @@
                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="503.0" prefWidth="350.0">
                                    <children>
                                        <ListView fx:id="lv_list_of_tables_in_same_ticket" prefHeight="503" prefWidth="350" />
+                              <Button fx:id="btn_checkout_ticket" layoutX="24.0" layoutY="530.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="318.0" text="PAY WHOLE TICKET" />
                                    </children>
                                </AnchorPane>
                            </content>

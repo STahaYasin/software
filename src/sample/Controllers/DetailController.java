@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sample.Handlers.AlertHandler;
 import sample.Handlers.ProductsManager;
 import sample.Handlers.TableManager;
 import sample.Handlers.TicketHandler;
@@ -37,7 +38,7 @@ public class DetailController implements IHaveStage {
     @FXML Tab tab_tables_in_same_ticket;
     @FXML ListView lv_list_of_tickets, lv_list_of_tables_in_same_ticket;
 
-    @FXML Button btn_add_new_ticket, start, stop, btn_checkout_table;
+    @FXML Button btn_add_new_ticket, start, stop, btn_checkout_table, btn_checkout_ticket;
 
     @FXML ListView detail_products_list, detail_products_on_table_list, times_listview;
 
@@ -152,6 +153,40 @@ public class DetailController implements IHaveStage {
                         if (payedTableReservation.getTicket() != null)
                             payedTableReservation.getTicket().removeTableReservation(payedTableReservation);
                         tableReservation.Delete();
+                        stage.close();
+                    }
+                });
+                ((IHaveStage) payController).setStage(stage1);
+
+                stage1.show();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        });
+        btn_checkout_ticket.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            if(tableReservation.getTicket() == null){
+                AlertHandler.ShowWarning("Error", "Cannot pay ticket", "The table reservation does not belong to a ticket");
+                return;
+            }
+
+            try{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Views/Pay.fxml"));
+
+                Stage stage1 = new Stage(StageStyle.DECORATED);
+                stage1.setScene(new Scene((Pane)loader.load(), Main.WINDOW_WIDTH, Main.WINDOW_HEIGHT));
+
+                PayController payController = loader.<PayController>getController();
+                payController.setPayable(tableReservation.getTicket());
+                payController.setOnPayListener(new OnPayListener() {
+                    @Override
+                    public void OnPayed(Payable payable) {
+                        Ticket ticket = (Ticket) payable;
+                        ticket.NotifyPayed();
+
+                        TicketHandler ticketHandler = TicketHandler.getInstance();
+                        ticketHandler.RemoveTicket(ticket);
+
                         stage.close();
                     }
                 });
