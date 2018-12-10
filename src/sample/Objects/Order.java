@@ -1,5 +1,7 @@
 package sample.Objects;
 
+import sample.Handlers.MoneyFormatHandler;
+
 public class Order {
     private int order_id;
     private int product_id;
@@ -51,6 +53,6 @@ public class Order {
 
     @Override
     public String toString(){
-        return String.valueOf(count) + " x " + product.toString() + ": " + String.valueOf(product.getPrice() * count);
+        return String.valueOf(count) + " x " + product.toString() + ": " + MoneyFormatHandler.getAsText(product.getPrice() * count);
     }
 }

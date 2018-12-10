@@ -14,10 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.Handlers.AlertHandler;
-import sample.Handlers.ProductsManager;
-import sample.Handlers.TableManager;
-import sample.Handlers.TicketHandler;
+import sample.Handlers.*;
 import sample.Main;
 import sample.Objects.*;
 
@@ -244,7 +241,7 @@ public class DetailController implements IHaveStage {
         productsList.addAll(tableReservation.getOrders());
 
         detail_products_on_table_list.setItems(productsList);
-        total_orders.setText("TOTAL: €" + tableReservation.getPriceOfOrders());
+        total_orders.setText("TOTAL: " + MoneyFormatHandler.getAsText(tableReservation.getPriceOfOrders()));
         printTotalPrice();
     }
     private void setupTickets(){
@@ -290,7 +287,6 @@ public class DetailController implements IHaveStage {
     }
 
     private void printTotalPrice(){
-        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(Locale.GERMANY);
-        total_price.setText("Price To Pay: " + numberFormat.format(tableReservation.getPrice()));
+        total_price.setText("Price To Pay: " + MoneyFormatHandler.getAsText(tableReservation.getPrice()));
     }
 }

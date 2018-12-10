@@ -1,5 +1,6 @@
 package sample.Objects;
 
+import sample.Handlers.MoneyFormatHandler;
 import sample.Objects.Stock;
 
 public class Product {
@@ -48,6 +49,6 @@ public class Product {
 
     @Override
     public String toString(){
-        return name + " (" + description + "): " + price;
+        return name + " (" + description + "): " + MoneyFormatHandler.getAsText(price);
     }
 }
